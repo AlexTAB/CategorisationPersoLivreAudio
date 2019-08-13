@@ -1,0 +1,95 @@
+bibliotheques de fonctions du jupyther NoteBook traiteDataKMeans 2019
+
+def corpusStringToFloat(corpusString) :
+1    #Converti un corpus audioProsodie de un fichier vers une matrice corpus load corpusLoadTabDesAudio
+
+def corpusStringToArray(corpusString) :
+2    #Transforme un corpus save en string vers une array (pour kmeans)
+    
+def aplanirListMiltiDimToMonoDim(listMultiDim) :
+3    #Aplanit une liste
+    
+def retirerListeL2deListeL1(listL1, listL2) :
+4    #Renvoie une liste qui est la listL1 retirer des element de listL2
+    
+def builtListSelectVectFromListCorpus(listCorpus, listIndicesSelectVect) :
+3    #Renvoie une liste de vecteurs selectionnes selon une liste de indices de vecteur a partir de un corpus
+    
+def builtCalibreArrayFromListCorpus(listCorpus, intCoteDimVect, intCoteDimMatrice, intPosFeature) :
+4    #Renvoie une array calibree de la feature en position intPosFeature du vecteur, a partir de une liste Corpus a 2 dimension
+
+def builtCalibreArrayFromMatrix3dCorpus(listCorpus, intCoteDimVect, intCoteDimMatrice, intPosFeature) :
+5    #Renvoie une array calibree de la feature en position intPosFeature du vecteur, a partir de une liste Corpus a 3 dimension
+
+def builtFusionArrayCalibre(npArrayCalibreFirst, npArrayCalibreSecond, intCoteDimVect, intCoteDimMatrice) :
+6    #Renvoie une fusion calibree des array calibres
+
+def builtFusionArrayList1dCalibre(npArrayCalibreFirst, list1dCalibreSecond, intCoteDimVect, intCoteDimMatrice) :
+9    #Renvoie une fusion calibree de l array et de la liste calibres
+
+def builtFusionCorpusList(listCorpusBase, listCorpusAjout) :
+10    #Renvoie la fusion de deux liste corpus de deux dimensions en ajoutant les lignes de une a suite de celles de autre
+
+def builtSelectVectFeatArrayCalibree(npArrayCalibreCorpus, listIndSelectVect, listIndSelectFeat) :
+11    #Renvoie la matrice des vecteurs seleactionnes de features selectionnees
+
+def builtListIndVectParolePers(corpusPers, intPosIdPers, idPers) :
+9    #Renvoie la liste des indices de paroles de IdPers dans le corpus corpusPers des paroles de tous les personnages
+
+def builtCorpusRegroupePersDesacord(corpusLabelPers, intPosIdPers, strIdFauxPersDesacord) :
+    #Renvoie un corpus de label de personnage en supprimant les desacord annotations a cause de strIdFauxPersDesacord
+
+def builtCorpusRegroupePers1EnPers2(corpusLabelPers, intPosIdPers, idPers1, idPers2) :
+    #Renvoie un corpus de label de personnages en regroupant le personnage idPers1 dans le personnage idPers2
+
+def builtCorpusGroupePersEtNonPers(corpusLabelPers, intPosIdOeuvre, intPosIdPers, idPers, idNonPers, strMonoOrMulti) :
+    #Renvoie un corpus de label de personnages en groupant les personnage idPers et les personnages non idPers
+    #dans deux groupes distincts sur un ensemble groupe a partir de un monocorpus ou multicorpus
+
+def builtCorpusGroupeSansPers(corpusLabelPers, intPosIdOeuvre, intPosIdPers, idPers, strMonoOrMulti) :
+    #Renvoie un corpus de label de personnages en excluant les personnages idPers
+    #sur un ensemble groupe a partir de un monocorpus ou multicorpus
+
+def builtDicoPersLabelsClusters(listLabelClusters, listPersFeatures, intPosIdPers) :
+    #Renvoie le dico des nombres occurences de chaque labels de clusters pour chaque personnages
+
+def belongToCluster(idPers, dictPersClusters) :
+    #Renvoie id du cluster auquel appartient le personnage
+
+def calculPrecisionPers(idPers, idClusterBelongPers, listClusters, dictPersClusters, intNbChifArrondi) :
+    #Renvoie la precion de labelisation du clustering des personnage 
+
+def calculRappelPers(idPers, idClusterBelongPers, listClusters, dictPersClusters, intNbChifArrondi) :
+    #Renvoie le rappel de labelisation du clustering des personnage 
+
+def builtDicoPersPrecisionRappel(dictPersClusters, npArrayClusters) :
+    #Renvoie un dico de personnages avec tout leurs clusters d'occurences, leur precision et leur rappel
+
+def builtArrayPersCluFromDictPersClu(dictPersClusters, intNbClusters) :
+    #Renvoie un tableau des personnages et de leurs occurences dans chaque clusters, a partir de un 
+    #dico dictPersClusters
+
+def showSaveDiapoClusterPers(corpusFeatPers1, corpusFeatPers2, corpusFeatPers3, intNbMaxClusters, intFeatX, intFeatY):
+    #Represente et sauve evolution de cluster de nombre 1 vers intNbMaxClusters sur 3 personnages en meme temps
+
+def builtKmeansFromCorpus(intNbClustersChosi, npCorpusFit, npCorpusPredict) :
+    #Retourne des objets sklearn kmeans, kmeansFit et kmeansPredict : kmeans.fit(X) ; y_kmeans.predict(Y)
+
+def buildListEvalFromDataFrameMultiCorpus(dfPersClusters, intNbClusters, strNomColPers, strNomClusters, strIdTotal) :
+    #Renvoie une liste avec des evaluations de rapport entre features en pourcentage
+    #La dataframe en parametre dfPersClusters contient :
+    #En ligne : le nombre de parole de un personnage dans les clusters et son total de paroles en derniere colonne
+    #En colonne : le nombre de parole de un cluster dans les personnages et son total de parole en derniere ligne
+
+def buildListEvalFromDataFrame(dfPersClusters, intNbClusters, strNomColPers, strNomClusters, strIdTotal) :
+    #Renvoie une liste avec des evaluations de rapport entre features en pourcentage
+    #La dataframe en parametre dfPersClusters contient :
+    #En ligne : le nombre de parole de un personnage dans les clusters et son total de paroles en derniere colonne
+    #En colonne : le nombre de parole de un cluster dans les personnages et son total de parole en derniere ligne
+
+def readFileToListLig(pwdRepFile, pwdNomFile, pwdExtFile) :
+    #Renvoie la liste des lignes contenues dans un fichier
+
+def extractCorpusFromFile(pwdRepRessources, strNomOeuvre, pwdNomFileRes, pwdExtSourceRes) :
+    #Extrait les corpus corpusCsvTexte, corpusLabelPers et corpusProsodie de un fichier conteneur de corpus
+
